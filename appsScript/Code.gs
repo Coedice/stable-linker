@@ -1,10 +1,12 @@
+const docId = "";  // Add your document ID here
+
 function getDocContent(docId) {
-  let doc = DocumentApp.openById(docId);
+  const doc = DocumentApp.openById(docId);
   return doc.getBody().getText();
 }
 
 function findUrl(text) {
-  let urlRegex = /(https?:\/\/[^\s]+)/g;
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
   return text.match(urlRegex)[0];
 }
 
@@ -15,8 +17,7 @@ function redirectToUrl(url) {
 }
 
 function doGet(e) {
-  let docId = e.parameter.id;
-  let content = getDocContent(docId);
-  let link = findUrl(content);
+  const content = getDocContent(docId);
+  const link = findUrl(content);
   return ContentService.createTextOutput(link);
 }

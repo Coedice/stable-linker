@@ -26,13 +26,12 @@ layout: compress
 					)[0][1];
 			}
 
-			const docId = getQueryVariable("docId");
-			const appScriptId = getQueryVariable("appScriptId");
+			const appScriptId = getQueryVariable("id");
 
-			fetch(`https://script.google.com/macros/s/${appScriptId}/exec?id=${docId}`)
+			fetch(`https://script.google.com/macros/s/${appScriptId}/exec`)
 				.then(response => response.text())
 				.then(url => window.open(url, "_self"))
-				.catch(error => window.open(`https://docs.google.com/document/d/${docId}`, "_self"));
+				.catch(error => console.log(error));
 		</script>
 	</body>
 </html>
