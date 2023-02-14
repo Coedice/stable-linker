@@ -1,20 +1,17 @@
 function getDocContent(docId) {
   let doc = DocumentApp.openById(docId);
-  let content = doc.getBody().getText();
-  return content;
+  return doc.getBody().getText();
 }
 
 function findUrl(text) {
   let urlRegex = /(https?:\/\/[^\s]+)/g;
-  let matches = text.match(urlRegex);
-  return matches[0];
+  return text.match(urlRegex)[0];
 }
 
 function redirectToUrl(url) {
   var template = HtmlService.createTemplateFromFile('Redirect');
   template.url = url;
-  var page = template.evaluate();
-  return page;
+  return template.evaluate();
 }
 
 function doGet(e) {
