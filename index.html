@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Redirecting...</title>
+	</head>
+	<body>
+		<script>
+			function redirect(url) {
+				window.open(url, '_self');
+			}
+
+			const docId = getQueryVariable("docId");
+			const appScriptId = getQueryVariable("appScriptId")
+
+			function getQueryVariable(searchParameter) {
+				const query = window.location.search.substring(1);
+				const parameter_value_pairs = query.split("&");
+
+				for (let i in parameter_value_pairs) {
+					const parameter_value_pair = parameter_value_pairs[i]
+					const [parameter, value] = parameter_value_pair.split("=");
+
+					if (parameter === searchParameter) {
+						return value;
+					}
+				}
+			}
+
+			fetch("https://script.google.com/macros/s/" + appScriptId + "/exec?id=" + docId)
+				.then(response => response.text())
+				.then(data => redirect(data))
+				.catch(error => console.error(error));
+		</script>
+	</body>
+</html>
