@@ -15,6 +15,6 @@ https://coedice.github.io/stable-linker?appScriptId=<Your App Script ID here>&do
 
 # Why link to this repo instead of the App Script?
 App Scripts cannot execute redirects since they are in a sandbox, so we can circumvent that
-by getting the redirect URL to outside the App Script itself, and redirecting to it from an external source (such as this repo).
+by getting redirect URL outside the App Script, and redirecting to it from an external source (such as this repo).
 
-This repo's HTML file simply follows the redirect link the App Script outputs.
+This repo's HTML file simply follows the redirect link that the App Script outputs.
