@@ -18,3 +18,6 @@ App Scripts cannot execute redirects since they are in a sandbox, so we can circ
 by getting redirect URL outside the App Script, and redirecting to it from an external source (such as this repo).
 
 This repo's HTML file simply follows the redirect link that the App Script outputs.
+
+# Fail-safe
+If the Google App Script query results in an error, the redirect is to the Google Doc file instead.
