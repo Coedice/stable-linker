@@ -1,3 +1,6 @@
+---
+layout: compress
+---
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -18,13 +21,13 @@
 					)
 					.filter(
 						(parameter_value_pair) => {
-							return parameter_value_pair[0] === searchParameter
+							return parameter_value_pair[0] === searchParameter;
 						}
 					)[0][1];
 			}
 
 			const docId = getQueryVariable("docId");
-			const appScriptId = getQueryVariable("appScriptId")
+			const appScriptId = getQueryVariable("appScriptId");
 
 			fetch("https://script.google.com/macros/s/" + appScriptId + "/exec?id=" + docId)
 				.then(response => response.text())
