@@ -1,6 +1,6 @@
 const docId = "";  // Add your document ID here
 
-function getDocContent(docId) {
+function getDocContent() {
   const doc = DocumentApp.openById(docId);
   return doc.getBody().getText();
 }
@@ -17,7 +17,7 @@ function redirectToUrl(url) {
 }
 
 function doGet(e) {
-  const content = getDocContent(docId);
+  const content = getDocContent();
   const link = findUrl(content);
   return ContentService.createTextOutput(link);
 }
